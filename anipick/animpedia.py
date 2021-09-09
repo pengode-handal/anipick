@@ -1,51 +1,48 @@
 import requests
 import json
 from googlesearch import search
+from .error_handling import SearchNotWork
 
-
-class Anympedia:
+class Anymegraphy:
   def __init__(self, title: str):
-    if " " in title:
-      title = title.replace(' ', '%20')
-    url = f'https://api.jikan.moe/v3/search/anime?q={title}&order_by=title&sort=asc&limit=2'
+    
+    try:
+      mal_id = search('site:myanimelist.net {} anime info inurl:anime/'.format(title), num_results=0)
+    except SearchNotWork:
+      raise SearchNotWork('Search Library Not Work!!')
+    mal_id = ''.join(mal_id).split('/')[4]
+    self.mal_id = mal_id
+    url = f'https://api.jikan.moe/v3/anime/{self.mal_id}/'
     r = requests.get(url)
-    res = r.json()
-    self.res = res or None
-#get my anime list id of anime
-    mal_id = res['results'][0]['mal_id']
-    self.mal_id = mal_id or None
-    u = f'https://api.jikan.moe/v3/anime/{self.mal_id}'
-    re = requests.get(u)
-    resu = re.json()
+    resu = r.json()
     self.resu = resu or None
     #Anime Title
     anime = resu['title']
     self.anime = anime or None
 
 #anime url
-    anime_url = res['results'][0]['url']
+    anime_url = resu['url']
     self.anime_url = anime_url or None
 
 #image anime url
-    image_url = res['results'][0]['image_url']
+    image_url = resu['image_url']
     self.image_url = image_url or None
 
 #rated anime, example = PG - 13
-    rated = res['results'][0]['rated']
+    rated = resu['rating']
     self.rated = rated or None
 
 #type anime, example = TV
-    type_nime = res['results'][0]['type']
+    type_nime = resu['type']
     self.type = type_nime or None
 
 #score rating anime
-    score = res['results'][0]['score']
+    score = resu['score']
     self.score = score or None
 
 #episode anime
-    eps = res['results'][0]['episodes']
+    eps = resu['episodes']
     self.eps = eps or None
-
 
 
 #opening song
@@ -76,6 +73,8 @@ class Anympedia:
 
 #trailer url(EMBED)
     trailer_url = resu['trailer_url']
+    trailer_url = trailer_url.split('/')[4].split('?')[0]
+    trailer_url = f'https://youtube.com/watch?v={trailer_url}'
     self.trailer_url = trailer_url or None
 #status anime
     status = resu['status']
@@ -116,6 +115,17 @@ class Anympedia:
 #favorite
     favorite = resu['favorites']
     self.favorite = favorite or None
+#duration
+    duration = resu['duration']
+    self.duration = duration or None
+#source
+    source = resu['source']
+    self.source = source or None
+#background
+    background = resu['background']
+    if 'null' in background:
+      background = None
+    self.background = background or None
   @property
   def studio(self):
       studio = []
@@ -124,7 +134,7 @@ class Anympedia:
       studio = ', '.join(studio)
       return studio or None
   @property
-  def genre(self):
+  def genre(self) -> list:
       genre = []
       for nama in self.resu['genres']:
           genre.append(nama['name'])
@@ -149,5 +159,5 @@ class Anympedia:
       recommend = recommend[:5]
       recommend = '; '.join(recommend)
       return recommend or None
-  def nsfw(self) -> bool:
+  def nsfw_scan(self) -> bool:
       return any(a in self.rated for a in ['R', '17'])

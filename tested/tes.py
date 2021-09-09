@@ -1,4 +1,4 @@
-import anipick
+
 from bs4 import BeautifulSoup
 import requests
 import json
@@ -35,5 +35,4 @@ url = requests.get('https://myanimelist.net/anime/46471/Tantei_wa_Mou_Shindeiru'
 soup = BeautifulSoup(url.content, 'html.parser')
 
 dark = soup.findAll('span', {'class':'dark_text'})
-print(dark)
 
