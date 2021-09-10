@@ -78,10 +78,7 @@ class Mangaography:
 #status
     status = result['status']
     self.status = status
-    
-    weapon = genshindata.characters
-    weapon = weapon[0]
-    self.weapon = weapon
+
 #author
   @property
   def author(self):

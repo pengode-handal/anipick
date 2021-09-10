@@ -2,8 +2,9 @@
 from bs4 import BeautifulSoup
 import requests
 import json
+import anipick.animpedia
 title = input()
-animm = anipick.Anympedia(title)
+animm = anipick.animpedia.Animegraphy(title)
 a = f'''{animm.genre}\n
 op song: {animm.op_song}\n
 ed song: {animm.ed_song}\n
@@ -36,3 +37,4 @@ soup = BeautifulSoup(url.content, 'html.parser')
 
 dark = soup.findAll('span', {'class':'dark_text'})
 
+print(a)

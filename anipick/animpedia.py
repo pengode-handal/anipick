@@ -3,7 +3,7 @@ import json
 from googlesearch import search
 from .error_handling import SearchNotWork
 
-class Anymegraphy:
+class Animegraphy:
   def __init__(self, title: str):
     
     try:

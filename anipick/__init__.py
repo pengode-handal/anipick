@@ -3,6 +3,6 @@ from .lyricsnim import *
 from .quotepedia import *
 from .char import *
 from .manga import *
-
+from .genshin import *
 
 __version__ = '1.0.3'

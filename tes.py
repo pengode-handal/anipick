@@ -2,7 +2,8 @@ import anipick
 from googlesearch import search
 title = input()
 animm = anipick.Mangaography(title)
-print(f'''
+genshinchar = anipick.Genshinchar
+a = (f'''
 {animm.manga_id}\n\n
 {animm.type}\n
 {animm.status}\n
@@ -23,4 +24,5 @@ print(f'''
 {animm.serialization}\n
 {animm.popularity}\n
 {animm.synopsis}\n
-{animm.weapon}''')
+''')
+print(genshinchar('vision').ayaka)
