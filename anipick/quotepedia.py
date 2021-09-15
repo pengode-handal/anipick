@@ -1,36 +1,27 @@
 
-import json
+from random import choice
 import os
 import requests
 
-try:
-  from download import download
-except:
-  os.system('pip install download')
-finally:
-  from download import download
 
-try:
-  from rich.console import Console 
-  konsol = Console()
-  log = konsol.log
-except:
-  log = print
 
 #uhh
-class Quote_Anime:
-  """
-  #methods:
-  ```
-  quote
-  char
-  anym
-  ```
-  """
-  base_url = 'https://animechan.vercel.app/api/random'
-  r = requests.get(base_url)
-  result = r.json()
-  quote = result['quote']
-  char = result['character']
-  anime = result['anime']
-  
+class Quotenime:
+    base_url = ['https://animechan.vercel.app/api/random', 'https://some-random-api.ml/animu/quote']
+    base_url = choice(base_url)
+    if 'some-random' in base_url:
+      r = requests.get(base_url)
+      result = r.json()
+      quote = result['sentence']
+      char = result['characther']
+      anime = result['anime']
+    else:
+      re = requests.get(base_url)
+      resu = re.json()
+      quote = resu['quote']
+      char = resu['character']
+      anime = resu['anime']
+
+    quote = quote or None
+    char = char or None
+    anime = anime or None

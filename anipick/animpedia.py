@@ -1,5 +1,4 @@
 import requests
-import json
 from googlesearch import search
 from .error_handling import SearchNotWork
 
@@ -123,8 +122,6 @@ class Animegraphy:
     self.source = source or None
 #background
     background = resu['background']
-    if 'null' in background:
-      background = None
     self.background = background or None
   @property
   def studio(self):

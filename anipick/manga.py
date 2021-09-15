@@ -1,5 +1,4 @@
 import requests
-import json
 from googlesearch import search
 from bs4 import BeautifulSoup
 from .database import genshindata

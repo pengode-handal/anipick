@@ -1,28 +1,32 @@
 import anipick
-from googlesearch import search
-title = input()
-animm = anipick.Mangaography(title)
-genshinchar = anipick.Genshinchar
-a = (f'''
-{animm.manga_id}\n\n
-{animm.type}\n
-{animm.status}\n
-{animm.aired}\n
-{animm.name}\n
-{animm.name_en}\n
-{animm.name_jp}\n
-{animm.manga_url}\n
-{animm.image_url}\n
-{animm.score}\n
-{animm.ranking}\n
-{animm.volume}\n
-{animm.chapter}\n
-{animm.member}\n
-{animm.genres}\n
-{animm.author}\n
-{animm.related}\n
-{animm.serialization}\n
-{animm.popularity}\n
-{animm.synopsis}\n
-''')
-print(genshinchar('vision').ayaka)
+
+title = input('input anime name: ')
+animm = anipick.Animegraphy(title)
+a = f'''{animm.genre}\n
+op song: {animm.op_song}\n
+ed song: {animm.ed_song}\n
+title: {animm.anime}\n
+trailer: {animm.trailer_url}\n
+aired: {animm.aired}\n
+type: {animm.type}\n
+episode: {animm.eps}\n
+score: {animm.score}\n
+status: {animm.status}\n
+id: {animm.mal_id}\n
+popularity: {animm.popularity}\n
+image: {animm.image_url}\n
+rank: {animm.rank}\n
+rated: {animm.rated}\n
+sysnopsis: {animm.synopsis}\n
+anime url: {animm.anime_url}\n
+producers: {animm.producers}\n
+adaptation: {animm.adaptation}\n
+sequel: {animm.sequel}\n
+        {animm.sequel_url}\n
+broadcast: {animm.broadcast}\n
+premiered: {animm.premiered}\n
+recommendation: {animm.recommend}\n
+studio: {animm.studio}\n
+favorites: {animm.favorite}\n
+'''
+print(a)
