@@ -4,7 +4,7 @@ from datetime import date
 
 
 
-class seasonal:
+class Seasonal:
     year = date.today()
     year = str(year).split('-')[0]
 

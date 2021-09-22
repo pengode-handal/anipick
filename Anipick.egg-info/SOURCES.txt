@@ -1,8 +1,13 @@
 LICENSE.txt
+MANIFEST.in
+README.md
+requirements.txt
 setup.py
 Anipick.egg-info/PKG-INFO
 Anipick.egg-info/SOURCES.txt
 Anipick.egg-info/dependency_links.txt
+Anipick.egg-info/entry_points.txt
+Anipick.egg-info/not-zip-safe
 Anipick.egg-info/requires.txt
 Anipick.egg-info/top_level.txt
 anipick/__init__.py
@@ -10,8 +15,10 @@ anipick/animpedia.py
 anipick/char.py
 anipick/error_handling.py
 anipick/genshin.py
+anipick/isi.py
 anipick/lyricsnim.py
 anipick/manga.py
 anipick/pict.py
 anipick/quotepedia.py
 anipick/season.py
+anipick/secret.py

@@ -136,7 +136,7 @@ class Animages:
             return(anu.url2 + 'bonl')
         @classmethod
         def smug(anu):
-            return anu.pict(anu.url2 + 'smug')
+            return anu.pict(choice([anu.url2 + 'smug'], [anu.url1 + 'smug']))
         @classmethod
         def handhold(anu):
             return anu.pict(anu.url2 + 'handhold')
@@ -150,4 +150,81 @@ class Animages:
         def wave(anu):
             wave = choice([anu.url1 + 'wave', anu.url2 + 'wave'])
             return anu.pict(wave)
+        @classmethod
+        def bully(anu):
+            return anu.pict(anu.url2 + 'bully')
+        @classmethod
+        def pout(anu):
+            return anu.pict(anu.url1 + 'pout')
+        @classmethod
+        def shrug(anu):
+            return anu.pict(anu.url1 + 'shrug')
+        @classmethod
+        def sleep(anu):
+            return anu.pict(anu.url1 + 'sleep')
+        @classmethod
+        def stare(anu):
+            return anu.pict(anu.url1 + 'stare')
+        @classmethod
+        def think(anu):
+            return anu.pict(anu.url1 + 'think')
+        @classmethod
+        def thumsup(anu):
+            return anu.pict(anu.url1 + 'thumsup')
+        @classmethod
+        def yeet(anu):
+            return anu.pict(anu.url2 + 'yeet')
+        @classmethod
+        def nom(anu):
+            return anu.pict(anu.url2 + 'nom')
+        @classmethod
+        def glomp(anu):
+            return anu.pict(anu.url2+ 'glomp')
+        @classmethod
+        def kick(anu):
+            return anu.pict(anu.url2 + 'kick')
 
+        class NSFW:
+            url2 = 'https://api.waifu.pics/nsfw/'
+            url3 = 'https://purrbot.site/api/img/nsfw/'
+            @classmethod
+            def nsfw_pict(anu, url: str) -> str:
+                re = get(url).json()
+                try:
+                    return re['url']
+                except:
+                    return re['link']
+            @classmethod
+            def anal(anu):
+                return anu.nsfw_pict(anu.url3 + 'anal/gif')
+            @classmethod
+            def blowjob(anu):
+                return anu.nsfw_pict(choice([anu.url2 + 'blowjob'], [anu.url3+ 'blowjob/gif']))
+            @classmethod
+            def cum(anu):
+                return anu.nsfw_pict(anu.url3 + 'cum/gif')
+            @classmethod
+            def waifu(anu):
+                return anu.nsfw_pict(anu.url2 + 'waifu')
+            @classmethod
+            def neko(anu):
+                return anu.nsfw_pict(choice([anu.url2 + 'neko'], [anu.url3 + 'neko/gif'], [anu.url3 + 'neko/img']))
+            @classmethod
+            def trap(anu):
+                return anu.nsfw_pict(anu.url2 + 'trap')
+            @classmethod
+            def yaoi(anu):
+                return anu.nsfw_pict(anu.url3 + 'yaoi/gif')
+            @classmethod
+            def yuri(anu):
+                return anu.nsfw_pict(anu.url3 + 'yuri/gif')
+            @classmethod
+            def random(anu):
+                return anu.nsfw_pict(anu.url3 + 'fuck/gif')
+            @classmethod
+            def solo(anu):
+                return anu.nsfw_pict(anu.url3 + 'solo/gif')
+            @classmethod
+            def pussylick(anu):
+                return anu.nsfw_pict(anu.url3 + 'pussylick/gif')
+            

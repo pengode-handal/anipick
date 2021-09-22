@@ -3,10 +3,10 @@ from googlesearch import search
 from .error_handling import SearchNotWork
 
 class Animegraphy:
-  def __init__(self, title_nime: str):
+  def __init__(self, title: str):
     
     try:
-      mal_id = search('site:myanimelist.net {} anime info inurl:anime/'.format(title_nime), num_results=0)
+      mal_id = search('site:myanimelist.net {} anime info inurl:anime/'.format(title), num_results=0)
     except SearchNotWork:
       raise SearchNotWork('Search Library Not Work!!')
     mal_id = ''.join(mal_id).split('/')[4]

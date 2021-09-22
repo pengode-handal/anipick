@@ -7,7 +7,7 @@ class Genshinchar:
   character('name')
   character('id')
   character('slug')
-  character('descriptiom')
+  character('description')
   character('weapon')
   character('obtain')
   character('gender')

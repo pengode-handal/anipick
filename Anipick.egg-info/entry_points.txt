@@ -1,0 +1,3 @@
+[console_scripts]
+anipick = anipick.isi:main
+

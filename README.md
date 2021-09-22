@@ -1,23 +1,3 @@
-Metadata-Version: 2.1
-Name: Anipick
-Version: 1.6.0
-Summary: Anime module for search Anime, Manga, Quote info
-Home-page: https://github.com/pengode-handal/anipick
-Author: Kenzawa/Babwa
-Author-email: babwaxgura@gmail.com
-License: MIT
-Keywords: anipick,Anipick,anime,python3,python,Anime,images
-Platform: UNKNOWN
-Classifier: Development Status :: 5 - Production/Stable
-Classifier: Intended Audience :: Developers
-Classifier: Operating System :: OS Independent
-Classifier: License :: OSI Approved :: MIT License
-Classifier: Programming Language :: Python :: 3
-Classifier: Topic :: Software Development :: Libraries
-Requires-Python: >=3.6
-Description-Content-Type: text/markdown
-License-File: LICENSE.txt
-
 # anpick
 anime and manga module to get infomations from [myanimelist](https://myanimelist.net)
 
@@ -177,4 +157,3 @@ anipick.Animegraphy
     get manga type
 #### volume
     get volume
-

@@ -79,7 +79,7 @@ class Mangaography:
 
 #author
   @property
-  def author(self):
+  def author(self) -> list:
       author = []
       for nama in self.result['authors']:
           author.append(nama['name'])
@@ -95,7 +95,7 @@ class Mangaography:
       return genres or None
 #related
   @property
-  def related(self):
+  def related(self) -> list:
       related = []
       try:
         for nama in self.result['related']['Adaptation']:

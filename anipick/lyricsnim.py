@@ -26,7 +26,7 @@ class Lyricspedia:
         lyrics_romaji = lyrics_romaji.replace('                                                            ', '')
         self.lyrics_romaji = lyrics_romaji or None
         try:
-            lyrics_en = soup.find('div', {'id': 'tab2'})
+            lyrics_en = soup.find('div', {'id': 'tab2'}).text
         except AttributeError:
             raise AttributeError('Can\' find a anime song')
         lyrics_en0 = lyrics_en.split('[')[0]
