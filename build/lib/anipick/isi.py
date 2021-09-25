@@ -14,7 +14,7 @@ def main():
     parse.add_argument('-q', '--quote',action='store_true' ,help='random quotes nime', required=False)
     parse.add_argument('-c', '--char', help='get character info', nargs='+')
     parse.add_argument('--author', action='version', version='Kenzawa/Babwa')
-    parse.add_argument('-v', '--version', action='version', version='1.6.0')
+    parse.add_argument('-v', '--version', action='version', version='1.6.3')
     parse.add_argument('-nc', '--ncode', metavar='keyword', nargs='+', help='get ncode')
     parse.add_argument('-sn', '--seasonal', action='store_true', help='get title anime in specified seasonal')
 
@@ -32,31 +32,35 @@ def main():
         id = title.mal_id
         broadcast = title.broadcast
         adaptation = title.adaptation
-        synopsis = title.synopsis
         duration = title.duration
         nsfw = title.nsfw_scan()
         score = title.score
         rank = title.rank
         sequel = title.sequel
         status = title.status
-        op = title.op_song
-        ed = title.ed_song
-        op = op.split('#')[0:3]
-        op = ', '.join(op)
-        ed = ed.split('#')[0:3]
-        ed = ', '.join(ed)
+        rated = title.rated
+        try:
+            op = title.op_song
+            ed = title.ed_song
+            op = op.split('#')[0:3]
+            op = ', '.join(op)
+            ed = ed.split('#')[0:3]
+            ed = ', '.join(ed)
+        except:
+            op = 'Opening Song Not Found'
+            ed = 'Ending Song Not Found'
         table = [['Anime', name], ['MAL ID', id], ['Status', status], ['Episode', eps], ['Aired', aired], ['Studio', studio],['Broadcast', broadcast], ['Duration', duration], ['NSFW', nsfw], [
-        'Sequel', sequel], ['Score', score], ['RANK', rank], ['Genre', genre],['Adaptation', adaptation]]
+        'Sequel', sequel], ['Score', score], ['RANK', rank], ['Genre', genre],['Adaptation', adaptation], ['Rated', rated]]
         try:
             if 'rue' in args.song:
                 table = [['Anime', name], ['MAL ID', id], ['Status', status], ['Episode', eps], ['Aired', aired], ['Studio', studio],['Broadcast', broadcast], ['Duration', duration], ['NSFW', nsfw], [
-            'Sequel', sequel], ['Score', score], ['RANK', rank], ['Genre', genre],['Adaptation', adaptation], ['Opening', op], ['Ending', ed]]
+            'Sequel', sequel], ['Score', score], ['RANK', rank], ['Genre', genre],['Adaptation', adaptation], ['Rated', rated], ['Opening', op], ['Ending', ed]]
             if 'lse' in args.song:
                 table = [['Anime', name], ['MAL ID', id], ['Status', status], ['Episode', eps], ['Aired', aired], ['Studio', studio],['Broadcast', broadcast], ['Duration', duration], ['NSFW', nsfw], [
-            'Sequel', sequel], ['Score', score], ['RANK', rank], ['Genre', genre],['Adaptation', adaptation]]
+            'Sequel', sequel], ['Score', score], ['RANK', rank], ['Genre', genre],['Adaptation', adaptation], ['Rated', rated]]
         except:
             table = [['Anime', name], ['MAL ID', id], ['Status', status], ['Episode', eps], ['Aired', aired], ['Studio', studio],['Broadcast', broadcast], ['Duration', duration], ['NSFW', nsfw], [
-        'Sequel', sequel], ['Score', score], ['RANK', rank], ['Genre', genre],['Adaptation', adaptation]]
+        'Sequel', sequel], ['Score', score], ['RANK', rank], ['Genre', genre],['Adaptation', adaptation], ['Rated', rated]]
         if args.tablefmt:
             print(tabulate.tabulate(table, headers='firstrow', tablefmt=args.tablefmt))
         else:
@@ -124,7 +128,7 @@ def main():
     
     if args.seasonal:
         resultt = anipick.Seasonal(limit=5)
-        table = [['Year', resultt.year], ['Season', resultt.season], ['anime']]
+        table = [['Year', resultt.year], ['Season', resultt.season], ['anime', resultt.name]]
         if args.tablefmt:
                 print(tabulate.tabulate(table, tablefmt=args.tablefmt))
         else:

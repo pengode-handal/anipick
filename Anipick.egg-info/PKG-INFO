@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: Anipick
-Version: 1.6.0
+Version: 1.6.3
 Summary: Anime module for search Anime, Manga, Quote info
 Home-page: https://github.com/pengode-handal/anipick
 Author: Kenzawa/Babwa
@@ -32,11 +32,16 @@ CMD
 pip install anipick
 ```
 
+# Usage From Command Line(Incomplete Because Im So Lazy)
+```
+anipick --help/-h
+```
+
 # Import
 ```python
 import anipick
 ```
-# Usage
+# Usage Manual With Python File(Complete)
 
 ### Get Anime Info
 ```python

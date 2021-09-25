@@ -12,11 +12,16 @@ CMD
 pip install anipick
 ```
 
+# Usage From Command Line(Incomplete Because Im So Lazy)
+```
+anipick --help/-h
+```
+
 # Import
 ```python
 import anipick
 ```
-# Usage
+# Usage Manual With Python File(Complete)
 
 ### Get Anime Info
 ```python

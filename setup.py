@@ -10,7 +10,7 @@ setup(
     name="Anipick",
     author="Kenzawa/Babwa",
     author_email="babwaxgura@gmail.com",
-    version='1.6.0',
+    version='1.6.3',
     description="Anime module for search Anime, Manga, Quote info",
     long_description=long_description,
     long_description_content_type="text/markdown",

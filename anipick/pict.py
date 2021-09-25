@@ -185,6 +185,7 @@ class Animages:
             return anu.pict(anu.url2 + 'kick')
 
         class NSFW:
+            url1 = 'https://nekos.life/api/v2/img/'
             url2 = 'https://api.waifu.pics/nsfw/'
             url3 = 'https://purrbot.site/api/img/nsfw/'
             @classmethod
@@ -202,13 +203,13 @@ class Animages:
                 return anu.nsfw_pict(choice([anu.url2 + 'blowjob'], [anu.url3+ 'blowjob/gif']))
             @classmethod
             def cum(anu):
-                return anu.nsfw_pict(anu.url3 + 'cum/gif')
+                return anu.nsfw_pict(choice([anu.url3 + 'cum/gif'], [anu.url1 + 'cum']))
             @classmethod
             def waifu(anu):
                 return anu.nsfw_pict(anu.url2 + 'waifu')
             @classmethod
             def neko(anu):
-                return anu.nsfw_pict(choice([anu.url2 + 'neko'], [anu.url3 + 'neko/gif'], [anu.url3 + 'neko/img']))
+                return anu.nsfw_pict(choice([anu.url2 + 'neko'], [anu.url3 + 'neko/gif'], [anu.url3 + 'neko/img'], [anu.url1 + 'nsfw_neko_gif']))
             @classmethod
             def trap(anu):
                 return anu.nsfw_pict(anu.url2 + 'trap')
@@ -227,4 +228,33 @@ class Animages:
             @classmethod
             def pussylick(anu):
                 return anu.nsfw_pict(anu.url3 + 'pussylick/gif')
-            
+            @classmethod
+            def solog(anu):
+                return anu.nsfw_pict(anu.url1 + 'solog')
+            @classmethod
+            def smallboobs(anu):
+                return anu.nsfw_pict(anu.url1 + 'smallbooobs')
+            @classmethod
+            def lewdkemo(anu):
+                return anu.nsfw_pict(anu.url1 + 'lewdkemo')
+            @classmethod
+            def woof(anu):
+                return anu.nsfw_pict(anu.url1 + 'woof')
+            @classmethod
+            def gasm(anu):
+                return anu.nsfw_pict(anu.url1 + 'gasm')
+            @classmethod
+            def hentai(anu):
+                return anu.nsfw_pict(anu.url1 + 'hentai')
+            @classmethod
+            def ero(anu):
+                return anu.nsfw_pict(anu.url1 + 'ero')
+            @classmethod
+            def hololewd(anu):
+                return anu.nsfw_pict(anu.url1 + 'hololewd')
+            @classmethod
+            def random_gif(anu):
+                return anu.nsfw_pict(anu.url1 + 'Random_hentai_gif')
+            @classmethod
+            def eroyuri(anu):
+                return anu.nsfw_pict(anu.url1 + 'eroyuri')

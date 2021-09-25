@@ -12,7 +12,7 @@ class Charapedia:
       raise SearchNotWork('Search Library Not Work')
     try:
       mal_char_id = ''.join(mal_char_id).split('/')[4]
-    except IndexError:
+    except:
       raise NoResultFound('Character Not Found')
     self.mal_char_id = mal_char_id
     base_api = 'https://api.jikan.moe/v3/character/{}/'.format(self.mal_char_id)
@@ -25,7 +25,7 @@ class Charapedia:
       name = result['name']
       name = f'{name} ({result["name_kanji"]})'
     except KeyError:
-      raise NoResultFound(f'{char} is not Anime characters')
+      raise NoResultFound(f'{char} is not Anime characters or u typo')
     self.name = name or None
 #url name
     url = result['url']

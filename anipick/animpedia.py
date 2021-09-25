@@ -1,15 +1,21 @@
 import requests
 from googlesearch import search
-from .error_handling import SearchNotWork
+from .error_handling import NoResultFound
+from requests.exceptions import HTTPError
 
 class Animegraphy:
   def __init__(self, title: str):
     
     try:
       mal_id = search('site:myanimelist.net {} anime info inurl:anime/'.format(title), num_results=0)
-    except SearchNotWork:
-      raise SearchNotWork('Search Library Not Work!!')
-    mal_id = ''.join(mal_id).split('/')[4]
+    except HTTPError:
+      raise HTTPError('Too many requests')
+    if not mal_id:
+        raise NoResultFound('Not found')
+    try:
+        mal_id = ''.join(mal_id).split('/')[4]
+    except:
+        raise KeyError('Not found')
     self.mal_id = mal_id
     url = f'https://api.jikan.moe/v3/anime/{self.mal_id}/'
     r = requests.get(url)
